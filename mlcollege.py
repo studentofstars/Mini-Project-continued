@@ -156,19 +156,19 @@ with tab2:
                         color_continuous_scale="RdBu_r")
         st.plotly_chart(fig, use_container_width=True)
          st.markdown("""
-         ### 🔁 Feature Correlation Heatmap  
-         This heatmap displays the **correlation coefficients** between all numeric parameters in the dataset.
+          ### 🔁 Feature Correlation Heatmap  
+          This heatmap displays the **correlation coefficients** between all numeric parameters in the dataset.
 
-         - Values range from `-1` (strong negative correlation) to `+1` (strong positive correlation).
-         - Blue indicates a positive relationship; red indicates a negative one.
-         - Use this to see which features are strongly related and might influence each other.
+          - Values range from `-1` (strong negative correlation) to `+1` (strong positive correlation).
+          - Blue indicates a positive relationship; red indicates a negative one.
+          - Use this to see which features are strongly related and might influence each other.
 
-         **📌 Parameters involved:**
+          **📌 Parameters involved:**
 
-         - `pl_orbper`: Orbital period of the planet (in Earth days)  
-         - `pl_orbsmax`: Semi-major axis — the average distance between the planet and its star (in AU)  
-         - `st_mass`: Mass of the host star (in solar masses)  
-         - `pl_bmasse`: Planet mass (in Earth masses)
+          - `pl_orbper`: Orbital period of the planet (in Earth days)  
+          - `pl_orbsmax`: Semi-major axis — the average distance between the planet and its star (in AU)  
+          - `st_mass`: Mass of the host star (in solar masses)  
+          - `pl_bmasse`: Planet mass (in Earth masses)
 
          These are the core physical parameters used to train the ML model and analyze exoplanet properties.
          """)
