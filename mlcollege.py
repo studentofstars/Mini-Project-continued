@@ -155,7 +155,7 @@ with tab2:
                         title="Correlation Heatmap",
                         color_continuous_scale="RdBu_r")
         st.plotly_chart(fig, use_container_width=True)
-         st.markdown("""
+        st.markdown("""
           ### 🔁 Feature Correlation Heatmap  
           This heatmap displays the **correlation coefficients** between all numeric parameters in the dataset.
 
