@@ -33,13 +33,13 @@ def load_lottie_animation(filepath: str):
 # ----------------- Load Data -----------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("/home/mrutyunjaya/Downloads/Exoplanet with star mass.csv")
+    df = pd.read_csv("https://github.com/studentofstars/Mini-Project-continued/blob/main/Exoplanet%20with%20star%20mass.csv")
     df = df.drop(columns=['Unnamed: 0', 'pl_name', 'hostname']).drop_duplicates()
     return df
 
 # Load animations# Load
-lottie_space_intro = load_lottie_animation("/home/mrutyunjaya/Downloads/Animation - 1745037899411.json")
-lottie_success = load_lottie_animation("/home/mrutyunjaya/Downloads/Animation - 1745038127530.json")
+lottie_space_intro = load_lottie_animation("https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745037899411.json")
+lottie_success = load_lottie_animation("https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745038127530.json")
 
 
 # ----------------- Page Title -----------------
