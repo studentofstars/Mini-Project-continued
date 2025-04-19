@@ -71,7 +71,7 @@ tab1, tab2, tab3, tab4 = st.tabs(["🔮 Prediction", "📊 Visualizations", "�
 with tab1:
     st.header("🔮 Predict Planet Mass")
     st.markdown("""
-    **What does this do?**
+   
 
     Enter the planet's orbital characteristics and its star's mass, and the app will estimate the mass of the exoplanet using a trained machine learning model (Random Forest Regressor).
 
@@ -192,7 +192,7 @@ with tab4:
     - See the raw values of features like orbital period, semi-major axis, star mass, and planet mass.
 
     Transparency helps build trust in machine learning predictions!
-    """
+    """)
     st.dataframe(data)
 
 
