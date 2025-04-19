@@ -137,6 +137,16 @@ with tab2:
                            labels={'pl_bmasse': "Planet Mass (Earth Masses)"},
                            color_discrete_sequence=['#4e79a7'])
         st.plotly_chart(fig, use_container_width=True)
+        st.markdown("""
+        ### 🌍 Planet Mass Distribution  
+        This plot shows the **distribution of planet masses** (in Earth masses) in the dataset.  
+        It helps us understand how common small, medium, and large exoplanets are.  
+
+        - Peaks in the histogram represent the most common mass ranges.
+        - You might notice a concentration of Earth-like or Jupiter-like planets.
+
+        Useful for identifying trends in planetary formation.
+        """)
 
     elif plot_choice == "Feature Correlation":
         corr = data.select_dtypes(include=[np.number]).corr()
@@ -145,6 +155,24 @@ with tab2:
                         title="Correlation Heatmap",
                         color_continuous_scale="RdBu_r")
         st.plotly_chart(fig, use_container_width=True)
+         st.markdown("""
+         ### 🔁 Feature Correlation Heatmap  
+         This heatmap displays the **correlation coefficients** between all numeric parameters in the dataset.
+
+         - Values range from `-1` (strong negative correlation) to `+1` (strong positive correlation).
+         - Blue indicates a positive relationship; red indicates a negative one.
+         - Use this to see which features are strongly related and might influence each other.
+
+         **📌 Parameters involved:**
+
+         - `pl_orbper`: Orbital period of the planet (in Earth days)  
+         - `pl_orbsmax`: Semi-major axis — the average distance between the planet and its star (in AU)  
+         - `st_mass`: Mass of the host star (in solar masses)  
+         - `pl_bmasse`: Planet mass (in Earth masses)
+
+         These are the core physical parameters used to train the ML model and analyze exoplanet properties.
+         """)
+
 
     elif plot_choice == "Orbital Period vs Mass":
         fig = px.scatter(data, x='pl_orbper', y='pl_bmasse',
@@ -152,9 +180,23 @@ with tab2:
                          labels={'pl_orbper': "Orbital Period (days)", 'pl_bmasse': "Planet Mass (Earth Masses)"},
                          opacity=0.6)
         st.plotly_chart(fig, use_container_width=True)
+        st.markdown("""
+        ### ⏱️ Orbital Period vs Planet Mass  
+        This scatter plot shows how **planet mass relates to orbital period** (time it takes to orbit the star).
+
+        - Shorter periods may indicate close-in, possibly smaller planets.
+        - Longer periods might suggest massive planets on wider orbits.
+
+        It's a good way to visualize any clusters or outliers in planetary systems.
+        """)
 
     # Feature Importance Plot
     st.subheader("🔍 Feature Importance")
+    st.markdown("""
+    The bar chart below shows which input features (orbital period, semi-major axis, and star mass) had the **most influence** on the machine learning model when predicting planet mass.
+
+    This can help us decide which parameters are most crucial for accurate predictions.
+    """)
     importances = model.feature_importances_
     feature_names = X.columns
     fig = px.bar(x=feature_names, y=importances,
