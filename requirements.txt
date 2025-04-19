@@ -2,8 +2,6 @@ requests
 pandas
 numpy
 streamlit
-setuptools_scm
-setuptools==69.5.1
 json
 streamlit_lottie
 scikit-learn
