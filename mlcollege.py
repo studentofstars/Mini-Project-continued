@@ -41,8 +41,9 @@ def load_data():
     return df
 
 # Load animations# Load
-lottie_space_intro = load_lottie_url("https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745037899411.json")
-lottie_success = load_lottie_url("https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745038127530.json")
+lottie_space_intro = load_lottie_url("https://raw.githubusercontent.com/studentofstars/Mini-Project-continued/main/Animation%20-%201745037899411.json")
+
+lottie_success = load_lottie_url("https://raw.githubusercontent.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745038127530.json")
 
 
 # ----------------- Page Title -----------------
