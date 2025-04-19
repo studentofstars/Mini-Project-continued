@@ -139,7 +139,7 @@ with tab2:
         st.plotly_chart(fig, use_container_width=True)
 
     elif plot_choice == "Feature Correlation":
-        corr = data.corr()
+        corr = data.select_dtypes(include=[np.number]).corr()
         fig = px.imshow(corr,
                         text_auto=True,
                         title="Correlation Heatmap",
