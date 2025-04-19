@@ -25,9 +25,12 @@ import json
 st.set_page_config(page_title="Exoplanet Mass Predictor", layout="wide")
 
 # ----------------- Load Animation -----------------
-def load_lottie_animation(filepath: str):
-    with open(filepath, "r") as file:
-        return json.load(file)
+def load_lottie_url(url: str):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return None
 
 
 # ----------------- Load Data -----------------
@@ -38,8 +41,8 @@ def load_data():
     return df
 
 # Load animations# Load
-lottie_space_intro = load_lottie_animation("https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745037899411.json")
-lottie_success = load_lottie_animation("https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745038127530.json")
+lottie_space_intro = load_lottie_url("https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745037899411.json")
+lottie_success = load_lottie_url"https://github.com/studentofstars/Mini-Project-continued/blob/main/Animation%20-%201745038127530.json")
 
 
 # ----------------- Page Title -----------------
