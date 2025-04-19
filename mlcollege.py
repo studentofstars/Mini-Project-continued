@@ -70,6 +70,20 @@ tab1, tab2, tab3, tab4 = st.tabs(["🔮 Prediction", "📊 Visualizations", "�
 # ================= TAB 1: PREDICTION =================
 with tab1:
     st.header("🔮 Predict Planet Mass")
+    st.markdown("""
+    **What does this do?**
+
+    Enter the planet's orbital characteristics and its star's mass, and the app will estimate the mass of the exoplanet using a trained machine learning model (Random Forest Regressor).
+
+    - 🌌 *Orbital Period*: Time the planet takes to orbit its star.
+    - 🌍 *Semi-Major Axis*: Average distance from the star.
+    - ☀️ *Star Mass*: Mass of the host star (in Solar masses).
+
+    The model will then:
+    - Predict the planet's mass (in Earth masses).
+    - Categorize it as lighter than Earth, between Earth and Jupiter, or heavier (gas giant).
+    - Let you download your prediction as a CSV file.
+    """)
     orbper = st.number_input("Orbital Period (days)", min_value=0.0, step=0.1, value=1.0)
     orbsmax = st.number_input("Semi-Major Axis (AU)", min_value=0.0, step=0.01, value=0.01)
     starmass = st.number_input("Star Mass (Solar Mass)", min_value=0.0, step=0.01, value=1.0)
@@ -104,6 +118,16 @@ with tab1:
 # ================= TAB 2: VISUALIZATIONS =================
 with tab2:
     st.header("📊 Explore the Dataset")
+    st.markdown("""
+
+    Visualize different aspects of the exoplanet dataset to understand trends and relationships between features.
+
+    **You can explore:**
+    - 📉 *Mass Distribution*: See how planet masses are spread across the dataset.
+    - 🔁 *Feature Correlation*: Heatmap showing how features relate to each other.
+    - 🌐 *Orbital Period vs Mass*: Understand how orbital time impacts mass.
+    - 🔍 *Feature Importance*: See which features most influence the model’s predictions.
+    """)
 
     plot_choice = st.selectbox("Choose a Plot", ["Mass Distribution", "Feature Correlation", "Orbital Period vs Mass"])
 
@@ -141,6 +165,14 @@ with tab2:
 # ================= TAB 3: SIMILAR PLANET =================
 with tab3:
     st.header("🪐 Find a Similar Known Exoplanet")
+    st.markdown("""
+    After you enter the planet characteristics in the Prediction tab, this section will:
+
+    - Calculate the **most similar known exoplanet** from the dataset using Euclidean distance in feature space.
+    - Show you its characteristics for comparison.
+
+    Great for discovering planets that resemble the one you imagined!
+    """)
 
     distances = euclidean_distances(X_scaled, input_scaled)
     nearest_index = np.argmin(distances)
@@ -152,6 +184,15 @@ with tab3:
 # ================= TAB 4: DATASET =================
 with tab4:
     st.header("📄 Dataset Preview")
+    st.markdown("""
+    This tab displays the full dataset used to train the model.
+
+    You can:
+    - Browse all the planetary entries.
+    - See the raw values of features like orbital period, semi-major axis, star mass, and planet mass.
+
+    Transparency helps build trust in machine learning predictions!
+    """
     st.dataframe(data)
 
 
