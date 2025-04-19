@@ -40,7 +40,7 @@ def load_data():
     # Corrected URL
     url = "https://raw.githubusercontent.com/studentofstars/Mini-Project-continued/main/Exoplanet%20with%20star%20mass.csv"
     df = pd.read_csv(url)
-    df = df.drop(columns=['Unnamed: 0', 'pl_name', 'hostname']).drop_duplicates()
+    df = df.drop(columns=['Unnamed: 0']).drop_duplicates()
     return df
 
 # Load animations# Load
