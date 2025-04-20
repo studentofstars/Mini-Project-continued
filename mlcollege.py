@@ -105,7 +105,7 @@ with tab1:
         st.info("🔴 Heavier than Jupiter! Possibly a gas giant.")
 
     # Export Prediction
-    st.subheader("📥 Export Prediction")
+  """  st.subheader("📥 Export Prediction")
     if st.button("Download Prediction as CSV"):
         pred_df = pd.DataFrame({
             "Orbital Period": [orbper],
@@ -113,7 +113,7 @@ with tab1:
             "Star Mass": [starmass],
             "Predicted Planet Mass": [predicted_mass]
         })
-        st.download_button("Download", pred_df.to_csv(index=False), file_name="prediction.csv")
+        st.download_button("Download", pred_df.to_csv(index=False), file_name="prediction.csv")"""
 
 # ================= TAB 2: VISUALIZATIONS =================
 with tab2:
