@@ -105,7 +105,7 @@ with tab1:
         st.info("🔴 Heavier than Jupiter! Possibly a gas giant.")
 
     # Export Prediction
-  """  st.subheader("📥 Export Prediction")
+  """st.subheader("📥 Export Prediction")
     if st.button("Download Prediction as CSV"):
         pred_df = pd.DataFrame({
             "Orbital Period": [orbper],
