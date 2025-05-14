@@ -62,12 +62,7 @@ if uploaded_file:
         sns.heatmap(df.corr(), annot=False, fmt=".2f", cmap='coolwarm', ax=ax_corr)
         st.pyplot(fig_corr)
 
-        st.subheader("Pairplot of Features")
-        try:
-            fig_pair = sns.pairplot(df, hue='Drought phase classification:', diag_kind='kde')
-            st.pyplot(fig_pair)
-        except:
-            st.warning("Pairplot could not be displayed. Possibly too many features.")
+     
 
         if 'latitude' in df.columns and 'longitude' in df.columns:
             st.subheader("🗺️ Spatial Distribution of Drought Records")
