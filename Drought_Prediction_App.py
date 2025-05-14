@@ -52,15 +52,34 @@ if uploaded_file:
     # Dataset Overview Tab
     with tabs[0]:
         st.subheader("Dataset Preview")
+        st.markdown("This tab shows the uploaded dataset used for training the model. \
+    You can review its structure, size, and the first few rows to understand what data \
+    is being processed.")
         st.write(f"Shape: {df.shape}")
         st.dataframe(df.head())
         
      # Visualization Tab
     with tabs[1]:
         st.subheader("Correlation Heatmap")
+        st.markdown("The heatmap displays correlations between numerical features. \
+    A high absolute correlation value means one feature is strongly linearly related to another.")
         fig_corr, ax_corr = plt.subplots()
         sns.heatmap(df.corr(), annot=False, fmt=".2f", cmap='coolwarm', ax=ax_corr)
         st.pyplot(fig_corr)
+        st.subheader("Selective Pairplot")
+    st.markdown("Select a few features below to generate a pairplot. Avoid selecting too many at once.")
+    selected_features = st.multiselect(
+        "Choose up to 4 features for pairplot",
+        options=X.columns.tolist(),
+        default=X.columns[:2].tolist()
+    )
+
+    if len(selected_features) > 1:
+        fig_pair = sns.pairplot(df[selected_features + ['Drought phase classification:']],
+                                hue='Drought phase classification:', diag_kind='kde')
+        st.pyplot(fig_pair)
+    else:
+        st.info("Please select at least two features to generate a pairplot.")
 
      
 
@@ -74,6 +93,8 @@ if uploaded_file:
      # Model Training Tab
     with tabs[2]:
         st.subheader("Model Performance")
+        st.markdown("This tab shows the performance of the trained Random Forest model, \
+    including accuracy, classification report, and confusion matrix.")
         st.write("Accuracy:", round(accuracy_score(y_test, y_pred), 2))
         st.text("Classification Report:\n" + classification_report(y_test, y_pred))
 
@@ -86,6 +107,8 @@ if uploaded_file:
     # Feature Importance Tab
     with tabs[3]:
         st.subheader("Feature Importances")
+        st.markdown("This bar chart shows how important each feature is in making drought phase predictions. \
+    Features with higher values have more influence on the final classification.")
         importances = pd.Series(model.feature_importances_, index=X.columns).sort_values(ascending=False)
         fig_imp, ax_imp = plt.subplots()
         sns.barplot(x=importances.values, y=importances.index, palette="viridis", ax=ax_imp)
@@ -94,6 +117,8 @@ if uploaded_file:
     # Prediction Tab
     with tabs[4]:
         st.subheader("Enter Input for Prediction")
+        st.markdown("Use this form to manually input feature values and get a predicted drought phase. \
+    Use the sliders to simulate different conditions.")
         input_data = {}
         with st.form("prediction_form"):
             for feature in X.columns:
@@ -113,6 +138,8 @@ if uploaded_file:
      # Raw Data Tab
     with tabs[5]:
         st.subheader("Raw Dataset")
+        st.markdown("This tab allows you to inspect the complete dataset after preprocessing. \
+    You can also download the dataset as a CSV file for local inspection or use.")
         st.dataframe(df)
 
         st.download_button("Download Raw Data", df.to_csv(index=False).encode('utf-8'), "raw_data.csv", "text/csv")
