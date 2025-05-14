@@ -67,8 +67,8 @@ if uploaded_file:
         sns.heatmap(df.corr(), annot=False, fmt=".2f", cmap='coolwarm', ax=ax_corr)
         st.pyplot(fig_corr)
         st.subheader("Selective Pairplot")
-    st.markdown("Select a few features below to generate a pairplot. Avoid selecting too many at once.")
-    selected_features = st.multiselect(
+        st.markdown("Select a few features below to generate a pairplot. Avoid selecting too many at once.")
+        selected_features = st.multiselect(
         "Choose up to 4 features for pairplot",
         options=X.columns.tolist(),
         default=X.columns[:2].tolist()
