@@ -72,14 +72,14 @@ if uploaded_file:
         "Choose up to 4 features for pairplot",
         options=X.columns.tolist(),
         default=X.columns[:2].tolist()
-    )
+        )
 
-    if len(selected_features) > 1:
-        fig_pair = sns.pairplot(df[selected_features + ['Drought phase classification:']],
+        if len(selected_features) > 1:
+            fig_pair = sns.pairplot(df[selected_features + ['Drought phase classification:']],
                                 hue='Drought phase classification:', diag_kind='kde')
-        st.pyplot(fig_pair)
-    else:
-        st.info("Please select at least two features to generate a pairplot.")
+            st.pyplot(fig_pair)
+        else:
+            st.info("Please select at least two features to generate a pairplot.")
 
      
 
