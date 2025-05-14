@@ -12,7 +12,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 st.set_page_config(page_title="Drought Prediction App", layout="wide")
 st.title("🌾 Drought Phase Prediction using Random Forest")
 
-uploaded_file = st.file_uploader("📂 Upload a cleaned CSV file", type=["csv"])
+uploaded_file = http://raw.githubusercontent.com/studentofstars/Mini-Project-continued/main/data_labels_cleaned.csv
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
