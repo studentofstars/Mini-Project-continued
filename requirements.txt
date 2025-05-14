@@ -6,3 +6,4 @@ streamlit_lottie
 scikit-learn
 plotly
 pip==25.0.1
+seaborn
