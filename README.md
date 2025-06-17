@@ -54,13 +54,6 @@ The dataset is obtained from the **[NASA Exoplanet Archive](https://exoplanetarc
 
 ---
 
-## 📁 Folder Structure
-
-├── mlcollege.py # Main Streamlit app code
-├── requirements.txt # Dependencies for deployment
-├── Animation.json # Lottie animation used in the app
-└── README.md # This file
-
 # 🌌 Exoplanet Detection using Machine Learning
 
 Welcome to the repository for our Machine Learning-based **Exoplanet Detection System**, developed to classify celestial bodies using real-world astronomical data. This project harnesses supervised learning algorithms to distinguish between confirmed exoplanets and non-planetary candidates based on features from the [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/).
