@@ -180,10 +180,5 @@ The dataset is obtained from the **[NASA Exoplanet Archive](https://exoplanetarc
 
 ---
 
-## 📁 Folder Structure
 
-├── mlcollege.py # Main Streamlit app code
-├── requirements.txt # Dependencies for deployment
-├── Animation.json # Lottie animation used in the app
-└── README.md # This file
 
