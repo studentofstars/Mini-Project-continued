@@ -38,7 +38,7 @@ def load_lottie_url(url: str):
 
 def load_data():
     # Corrected URL
-    url = "https://raw.githubusercontent.com/studentofstars/Mini-Project-continued/main/Exoplanet%20with%20star%20mass.csv"
+    url = "https://raw.githubusercontent.com/studentofstars/Mini-Project-continued/main/Exoplanet_data.csv"
     df = pd.read_csv(url)
     df = df.drop(columns=['Unnamed: 0']).drop_duplicates()
     return df
