@@ -107,13 +107,13 @@ with tab1:
     # Export Prediction
     #st.subheader("📥 Export Prediction")
     #if st.button("Download Prediction as CSV"):
-        """pred_df = pd.DataFrame({
-            "Orbital Period": [orbper],
-            "Semi-Major Axis": [orbsmax],
-            "Star Mass": [starmass],
-            "Predicted Planet Mass": [predicted_mass]
-        })
-        st.download_button("Download", pred_df.to_csv(index=False), file_name="prediction.csv")"""
+        #"""pred_df = pd.DataFrame({
+            #"Orbital Period": [orbper],
+            #"Semi-Major Axis": [orbsmax],
+            #"Star Mass": [starmass],
+           # "Predicted Planet Mass": [predicted_mass]
+       # })
+        #st.download_button("Download", pred_df.to_csv(index=False), file_name="prediction.csv")"""
 
 # ================= TAB 2: VISUALIZATIONS =================
 with tab2:
